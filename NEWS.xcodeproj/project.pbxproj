@@ -16,6 +16,7 @@
 		5720D2C8CBEB6493E23B32A5 /* Pods_NEWS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B85F08C60A21812D4DE63C /* Pods_NEWS.framework */; };
 		F6428CC825B59E4D0035106D /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6428CC725B59E4D0035106D /* APIKey.swift */; };
 		F6428CCC25B59E7C0035106D /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6428CCB25B59E7C0035106D /* Article.swift */; };
+		F6428CD125B5A6870035106D /* ArticleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6428CD025B5A6870035106D /* ArticleService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		CA0141AED35231E051953858 /* Pods-NEWS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEWS.release.xcconfig"; path = "Target Support Files/Pods-NEWS/Pods-NEWS.release.xcconfig"; sourceTree = "<group>"; };
 		F6428CC725B59E4D0035106D /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		F6428CCB25B59E7C0035106D /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		F6428CD025B5A6870035106D /* ArticleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		0768CEA325B171D300DE6E6E /* NEWS */ = {
 			isa = PBXGroup;
 			children = (
+				F6428CCF25B5A6730035106D /* Services */,
 				F6428CCA25B59E6A0035106D /* Models */,
 				070736A725B1814B009DC670 /* Resources */,
 				070736A625B1813A009DC670 /* AppDelegate */,
@@ -127,6 +130,14 @@
 				F6428CCB25B59E7C0035106D /* Article.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F6428CCF25B5A6730035106D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F6428CD025B5A6870035106D /* ArticleService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +256,7 @@
 				0768CEC525B17FF500DE6E6E /* Coordinator.swift in Sources */,
 				0768CEA925B171D300DE6E6E /* RootViewController.swift in Sources */,
 				F6428CCC25B59E7C0035106D /* Article.swift in Sources */,
+				F6428CD125B5A6870035106D /* ArticleService.swift in Sources */,
 				0768CEA525B171D300DE6E6E /* AppDelegate.swift in Sources */,
 				0768CEA725B171D300DE6E6E /* SceneDelegate.swift in Sources */,
 				F6428CC825B59E4D0035106D /* APIKey.swift in Sources */,
