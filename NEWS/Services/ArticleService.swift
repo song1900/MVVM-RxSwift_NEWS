@@ -31,7 +31,7 @@ class ArticleService: ArticleServiceProtocol {
     
     private func fetchNews(completion:@escaping((Error?, [Article]?) -> Void)) {
         // All articles about Bitcoin from the last month, sorted by recent first
-        let urlString = "http://newsapi.org/v2/everything?q=bitcoin&from=2020-12-18&sortBy=publishedAt&apiKey="
+        let urlString = "https://newsapi.org/v2/everything?q=bitcoin&from=2020-12-18&sortBy=publishedAt&apiKey="
         
         guard let url = URL(string: urlString + APIKey) else {
             return completion(NSError(domain: "woojin", code: 404, userInfo: nil), nil)
