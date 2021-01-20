@@ -15,10 +15,11 @@ class RootViewController: UIViewController {
     let viewModel: RootViewModel
     let disposeBag = DisposeBag()
     
-    private let articles = BehaviorRelay<[Article]>(value: [])
-    var articlesObserver: Observable<[Article]> {
-        return articles.asObservable()
+    private let articleViewModel = BehaviorRelay<[ArticleViewModel]>(value: [])
+    var articleViewModelObserver: Observable<[ArticleViewModel]> {
+        return articleViewModel.asObservable()
     }
+    
     
     // MARK: - Lifecycles
     init(viewModel: RootViewModel) {
@@ -45,23 +46,25 @@ class RootViewController: UIViewController {
     
     // MARK: - Helpers
     func fetchArticles() {
-        self.viewModel.fetchArticles()
-            .subscribe { (articles) in
-                self.articles.accept(articles)
-                print(articles)
+        viewModel.fetchArticles()
+            .subscribe { (articleViewModels) in
+                self.articleViewModel.accept(articleViewModels)
             } onError: { (error) in
-                print("ERROR = \(error.localizedDescription)")
-            }
-            .disposed(by: disposeBag)
+                print("ERROR fetchArticles = \(error.localizedDescription)")
+            }.disposed(by: disposeBag)
+
     }
     
     func subscribe() {
-        self.articlesObserver
+        self.articleViewModelObserver
             .subscribe { (articles) in
-            // collectionview reload
-        }
-        .disposed(by: disposeBag)
+                print(articles)
+            } onError: { (error) in
+                print("ERROR articleViewModelObserver = \(error.localizedDescription)")
+            }.disposed(by: disposeBag)
 
     }
+    
+    
     
 }

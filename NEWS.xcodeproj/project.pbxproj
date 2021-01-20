@@ -13,6 +13,7 @@
 		0768CEAE25B171D400DE6E6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0768CEAD25B171D400DE6E6E /* Assets.xcassets */; };
 		0768CEB125B171D400DE6E6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0768CEAF25B171D400DE6E6E /* LaunchScreen.storyboard */; };
 		0768CEC525B17FF500DE6E6E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0768CEC425B17FF500DE6E6E /* Coordinator.swift */; };
+		077E121525B824DB00F1C6E3 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077E121425B824DB00F1C6E3 /* ArticleViewModel.swift */; };
 		5720D2C8CBEB6493E23B32A5 /* Pods_NEWS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B85F08C60A21812D4DE63C /* Pods_NEWS.framework */; };
 		F6428CC825B59E4D0035106D /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6428CC725B59E4D0035106D /* APIKey.swift */; };
 		F6428CCC25B59E7C0035106D /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6428CCB25B59E7C0035106D /* Article.swift */; };
@@ -29,6 +30,7 @@
 		0768CEB025B171D400DE6E6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0768CEB225B171D400DE6E6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0768CEC425B17FF500DE6E6E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		077E121425B824DB00F1C6E3 /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
 		91B85F08C60A21812D4DE63C /* Pods_NEWS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NEWS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96652E71504E7A2572959C30 /* Pods-NEWS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEWS.debug.xcconfig"; path = "Target Support Files/Pods-NEWS/Pods-NEWS.debug.xcconfig"; sourceTree = "<group>"; };
 		CA0141AED35231E051953858 /* Pods-NEWS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEWS.release.xcconfig"; path = "Target Support Files/Pods-NEWS/Pods-NEWS.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				F6428CD525B5A9E90035106D /* RootViewModel.swift */,
+				077E121425B824DB00F1C6E3 /* ArticleViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				F6428CD125B5A6870035106D /* ArticleService.swift in Sources */,
 				0768CEA525B171D300DE6E6E /* AppDelegate.swift in Sources */,
 				0768CEA725B171D300DE6E6E /* SceneDelegate.swift in Sources */,
+				077E121525B824DB00F1C6E3 /* ArticleViewModel.swift in Sources */,
 				F6428CD625B5A9E90035106D /* RootViewModel.swift in Sources */,
 				F6428CC825B59E4D0035106D /* APIKey.swift in Sources */,
 			);
