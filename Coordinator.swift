@@ -2,7 +2,7 @@
 //  Coordinator.swift
 //  NEWS
 //
-//  Created by SungHo Han on 2021/01/15.
+//  Created by 송우진 on 2021/01/15.
 //
 
 import UIKit
