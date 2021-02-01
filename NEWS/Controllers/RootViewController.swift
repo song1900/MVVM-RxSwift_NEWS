@@ -15,6 +15,13 @@ class RootViewController: UIViewController {
     let viewModel: RootViewModel
     let disposeBag = DisposeBag()
     
+    private lazy var collectionView: UICollectionView = {
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+        cv.delegate = self
+        cv.dataSource = self
+        return cv
+    }()
+    
     private let articleViewModel = BehaviorRelay<[ArticleViewModel]>(value: [])
     var articleViewModelObserver: Observable<[ArticleViewModel]> {
         return articleViewModel.asObservable()
@@ -65,6 +72,23 @@ class RootViewController: UIViewController {
 
     }
     
+    
+    
+}
+
+extension RootViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return articleViewModel.value.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 120)
+    }
     
     
 }
