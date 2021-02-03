@@ -16,9 +16,10 @@ class RootViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     private lazy var collectionView: UICollectionView = {
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         cv.delegate = self
         cv.dataSource = self
+        cv.backgroundColor = .systemBackground
         return cv
     }()
     
@@ -42,13 +43,25 @@ class RootViewController: UIViewController {
         super.viewDidLoad()
         
         configureUI()
+        configureCollectionView()
         fetchArticles()
         subscribe()
     }
     
     // MARK: - Configures
     func configureUI() {
-        view.backgroundColor = .red
+        view.backgroundColor = .systemBackground
+        
+        self.title = self.viewModel.title
+        
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
+    
+    func configureCollectionView() {
+        self.collectionView.register(ArticleCell.self, forCellWithReuseIdentifier: "cell")
     }
     
     // MARK: - Helpers
@@ -65,7 +78,9 @@ class RootViewController: UIViewController {
     func subscribe() {
         self.articleViewModelObserver
             .subscribe { (articles) in
-                print(articles)
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             } onError: { (error) in
                 print("ERROR articleViewModelObserver = \(error.localizedDescription)")
             }.disposed(by: disposeBag)
@@ -82,7 +97,13 @@ extension RootViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ArticleCell
+
+        cell.imageView.image = nil
+
+        let articleViewModel = self.articleViewModel.value[indexPath.row]
+        cell.viewModel.onNext(articleViewModel)
+
         return cell
     }
     
