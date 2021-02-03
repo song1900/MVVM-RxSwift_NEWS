@@ -60,9 +60,15 @@ class ArticleCell: UICollectionViewCell {
     func configureUI() {
         backgroundColor = .systemBackground
         
+        layer.cornerRadius = 8
+        layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.35).cgColor
+        layer.shadowOpacity = 1
+        layer.shadowRadius = 6
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        
         addSubview(imageView)
         imageView.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
+            $0.centerY.equalToSuperview().offset(-10)
             $0.left.equalToSuperview().offset(20)
             $0.size.equalTo(CGSize(width: 60, height: 60))
         }
@@ -76,7 +82,8 @@ class ArticleCell: UICollectionViewCell {
         
         addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(5)
+            $0.bottom.equalToSuperview().inset(5)
             $0.left.right.equalTo(titleLabel)
         }
     }

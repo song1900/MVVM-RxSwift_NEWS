@@ -15,6 +15,7 @@ class RootViewController: UIViewController {
     let viewModel: RootViewModel
     let disposeBag = DisposeBag()
     
+    private let collectionCellIdentifier = "NewsCell"
     private lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         cv.delegate = self
@@ -61,7 +62,7 @@ class RootViewController: UIViewController {
     }
     
     func configureCollectionView() {
-        self.collectionView.register(ArticleCell.self, forCellWithReuseIdentifier: "cell")
+        self.collectionView.register(ArticleCell.self, forCellWithReuseIdentifier: collectionCellIdentifier)
     }
     
     // MARK: - Helpers
@@ -97,10 +98,10 @@ extension RootViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ArticleCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionCellIdentifier, for: indexPath) as! ArticleCell
 
         cell.imageView.image = nil
-
+        
         let articleViewModel = self.articleViewModel.value[indexPath.row]
         cell.viewModel.onNext(articleViewModel)
 
@@ -108,7 +109,11 @@ extension RootViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 120)
+        return CGSize(width: view.frame.width - 40, height: 120)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(self.articleViewModel.value[indexPath.row])
     }
     
     
